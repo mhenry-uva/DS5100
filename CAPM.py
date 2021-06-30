@@ -32,11 +32,11 @@ SPY_Excess = SPY - R_f
 AAPL_Excess = AAPL - R_f
 print(SPY_Excess[-5:])
 print(AAPL_Excess[-5:])
-#plotting it
+# plotting it
 plot = plt.scatter(SPY_Excess, AAPL_Excess)
 beta = np.dot(SPY_Excess.T, SPY_Excess)**-1 * np.dot(SPY_Excess.T, AAPL_Excess)
 print(beta)
-#beta sensitivity function
+# beta sensitivity function
 def beta_sensitivity(x,y):
     output = []
     for i in range(x.shape[0]):
@@ -50,4 +50,4 @@ def beta_sensitivity(x,y):
         output.append((i, beta))
     return output
 betas = beta_sensitivity(SPY_Excess, AAPL_Excess)
-betas[:5]
+print(betas[:5])
